@@ -1,0 +1,85 @@
+<div class="main-container" [ngClass]="className">
+  <div class="theme-wrapper">
+    <h2 class="primary-heading">Select Your Theme</h2>
+    <div>
+    <mat-radio-group aria-label="Select an option">
+      <mat-radio-button value="dark" (change)="radioChange('dark')">Dark</mat-radio-button>
+      <mat-radio-button value="light" (change)="radioChange('light')">Light</mat-radio-button>
+      <mat-radio-button value="contrast" (change)="radioChange('contrast')">Contrast</mat-radio-button>
+    </mat-radio-group>
+    </div>
+    <div>
+    <mat-radio-group aria-label="Select an option">
+      <mat-radio-button value="primary" (change)="valueChange('primary')">Primary</mat-radio-button>
+      <mat-radio-button value="secondary" (change)="valueChange('secondary')">Secondary</mat-radio-button>
+    </mat-radio-group>
+    </div>
+  </div>
+
+</div>
+
+  <div class="inputs-wrapper" style="width: 80%;display:block">
+    <h2 class="primary-heading">Table</h2>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" [ngClass]="className">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="heading">
+        <th mat-header-cell *matHeaderCellDef> Headings </th>
+        <td mat-cell *matCellDef="let element"><h2 class="headings" style=" color: var(--dark-secondary)"> {{element.heading}} </h2></td>
+      </ng-container>
+    
+      <!-- Weight Column -->
+      <ng-container matColumnDef="input">
+        <th mat-header-cell *matHeaderCellDef> Inputs </th>
+        <td mat-cell *matCellDef="let element">
+          <mat-form-field *ngIf="element.input === 'input'" class="example-full-width" appearance="fill">
+            <mat-label>value</mat-label>
+            <input matInput placeholder="Ex. Pizza" value="">
+          </mat-form-field>
+          <section class="example-section" *ngIf="element.input === 'checkbox'" >
+            <mat-checkbox class="example-margin">I am check box</mat-checkbox>
+          </section>
+        </td>
+      </ng-container>
+    
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="card">
+        <th mat-header-cell *matHeaderCellDef> Cards </th>
+        <td mat-cell *matCellDef="let element"> {{element.card}}
+          <mat-card *ngIf="element.card==='image'">
+            <mat-card-title>Title</mat-card-title>
+            <mat-card-subtitle>SubTitle</mat-card-subtitle>
+            <!-- <mat-card-content>
+              <img mat-card-image src="https://media.istockphoto.com/photos/portrait-of-a-young-businessman-wearing-a-headset-while-working-in-an-picture-id1319873303?b=1&k=20&m=1319873303&s=170667a&w=0&h=_K1fuLb2rlCUBMPSkQmybaEgRA5z3pE1Gny9AUYVKx8=">
+            </mat-card-content> -->
+            <mat-card-footer>Card Footer</mat-card-footer>
+          </mat-card>  
+          <mat-card *ngIf="element.card==='no-image'">
+            <mat-card-title>Title</mat-card-title>
+            <mat-card-subtitle>SubTitle</mat-card-subtitle>
+          </mat-card>  
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let element"> 
+          <mat-icon *ngIf="element.actions === 'edit'" aria-hidden="false" aria-label="Example edit icon">edit</mat-icon>
+          <mat-icon *ngIf="element.actions === 'add'" aria-hidden="false" aria-label="Example edit icon">add</mat-icon>
+           </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    
+  </div>
+
+  

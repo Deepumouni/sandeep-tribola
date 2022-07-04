@@ -1,0 +1,96 @@
+@use '../styles.scss' as c;
+
+.theme-wrapper {
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin: 20px;
+    display: table;
+}
+.theme-wrapper div {
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+}
+
+mat-radio-button {
+    margin-right: 20px;
+}
+
+.inputs-wrapper {
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin: 20px;
+    display: table;
+}
+.mat-form-field {
+    display: block;
+    position: relative;
+    text-align: left;
+}
+.mat-row {
+    height: auto;
+  }
+  
+  .mat-cell {
+    padding: 15px;
+  }
+
+  :host ::ng-deep  .mat-typography .light-primary h2 {
+    color: c.$light-primary !important;
+  }
+  :host ::ng-deep   .mat-typography .light-secondary h2 {
+    color: c.$light-secondary !important;
+  }
+  :host ::ng-deep   .mat-typography .dark-primary h2 {
+    color: c.$dark-primary !important;
+  }
+  :host ::ng-deep   .mat-typography .dark-secondary h2 {
+    color: c.$dark-secondary !important;
+  }
+
+  :host ::ng-deep  .mat-typography .contrast-primary h2 {
+    color: c.$contrast-primary !important;
+  }
+  :host ::ng-deep  .mat-typography .contrast-secondary h2 {
+    color: c.$contrast-secondary !important;
+  }
+
+:host ::ng-deep .dark-secondary .mat-cell h2{
+    color: c.$dark-secondary !important;
+}
+:host ::ng-deep .dark-primary .mat-cell h2{
+    color: c.$dark-primary !important;
+}
+:host ::ng-deep .light-secondary .mat-cell h2{
+    color: c.$light-secondary !important;
+}
+:host ::ng-deep .light-primary .mat-cell h2{
+    color: c.$light-primary !important;
+}
+:host ::ng-deep .contrast-secondary .mat-cell h2{
+    color: c.$contrast-secondary !important;
+}
+:host ::ng-deep .contrast-primary .mat-cell h2{
+    color: c.$contrast-primary !important;
+}
+
+.dark-secondary mat-icon.mat-icon.notranslate.material-icons {
+    color: c.$dark-secondary !important;
+}
+.dark-primary mat-icon.mat-icon.notranslate.material-icons {
+    color: c.$dark-primary !important;
+}
+.light-secondary mat-icon.mat-icon.notranslate.material-icons {
+    color: c.$light-secondary !important;
+}
+.light-primary mat-icon.mat-icon.notranslate.material-icons {
+    color: c.$light-primary !important;
+}
+.contrast-secondary mat-icon.mat-icon.notranslate.material-icons {
+    color: c.$contrast-secondary !important;
+}
+.contrast-primary mat-icon.mat-icon.notranslate.material-icons {
+    color: c.$contrast-primary !important;
+}
